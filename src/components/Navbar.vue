@@ -93,6 +93,10 @@ export default {
         text-align: center;
         cursor: pointer;
       }
+
+      a.active {
+        opacity: 0.8;
+      }
     }
   }
 
