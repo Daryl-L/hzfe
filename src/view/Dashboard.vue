@@ -6,14 +6,10 @@
 import Navbar from 'Navbar'
 
 export default {
-  data: function () {
+  data () {
     return {
     }
   },
-  computed: {},
-  ready: function () {},
-  attached: function () {},
-  methods: {},
   components: {
     Navbar
   }
@@ -30,7 +26,7 @@ export default {
     margin: 0;
     padding: 0;
   }
-  
+
   a {
     text-decoration: none;
   }
