@@ -25,10 +25,22 @@
 export default {
   data: function () {
     return {
+      active: 0
     }
   },
   computed: {},
-  ready: function () {},
+  ready: function () {
+    const border = document.querySelector('.nav-border')
+    const self = this
+    Array.from(document.querySelectorAll('ul.navbar li')).forEach((val, index) => {
+      val.addEventListener('mouseover', () => {
+        border.style.transform = 'translate3d(' + (index * 100) + 'px, 0, 0)'
+      })
+      val.addEventListener('mouseout', () => {
+        border.style.transform = 'translate3d(' + (self.active * 100) + 'px, 0, 0)'
+      })
+    })
+  },
   attached: function () {},
   methods: {},
   components: {}
