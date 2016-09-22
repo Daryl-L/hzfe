@@ -1,7 +1,22 @@
 <template lang="html">
   <header>
     <nav class="navigation">
-      <a class="logo">HZFE</a>
+      <a class="logo" href="/">HZFE</a>
+      <ul class="navbar">
+        <li>
+          <a class="active">首页</a>
+        </li>
+        <li>
+          <a>文章</a>
+        </li>
+        <li>
+          <a>动态</a>
+        </li>
+        <li>
+          <a>关于组织</a>
+        </li>
+      </ul>
+      <div class="nav-border"></div>
     </nav>
   </header>
 </template>
@@ -13,8 +28,7 @@ export default {
     }
   },
   computed: {},
-  ready: function () {
-  },
+  ready: function () {},
   attached: function () {},
   methods: {},
   components: {}
@@ -29,14 +43,48 @@ export default {
     margin: 0;
     width: 100%;
     height: 60px;
-    padding: 0 58px;
+    padding: 0 60px;
+    background-color:rgba(255, 255, 255, 0.1);
 
     .logo {
-      display: inline-block;
-      padding-top: 10px;
+      float: left;
+      width: 100px;
+      line-height: 60px;
       font-size: 25px;
+      letter-spacing: 2px;
       color: white;
-      background-color:rgba(0, 0, 0, 0);
+      cursor: pointer;
     }
+  }
+
+  .navbar {
+    float: left;
+
+    li {
+      float: left;
+      width: 100px;
+      height: 60px;
+
+      a {
+        display: inline-block;
+        color: white;
+        width: 100%;
+        line-height: 60px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .nav-border {
+    position: fixed;
+    width: 100px;
+    height: 1px;
+    background-color: white;
+    top: 59px;
+    left: 160px;
+    transform: translate3d(0, 0, 0);
+    transition: transform .5s cubic-bezier(.86,0,.07,1),-webkit-transform .5s cubic-bezier(.86,0,.07,1);
   }
 </style>
