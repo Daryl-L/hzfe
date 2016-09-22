@@ -20,8 +20,9 @@ export default {
 }
 </script>
 
-<style type="scss">
+<style lang="scss">
   body {
     font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to right,  rgba(38,143,208,0.8) 0%,rgba(95,86,172,0.8) 100%);
   }
 </style>

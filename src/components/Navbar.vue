@@ -1,7 +1,7 @@
 <template lang="html">
   <header>
     <nav class="navigation">
-      <a>HZFE</a>
+      <a class="logo">HZFE</a>
     </nav>
   </header>
 </template>
@@ -14,7 +14,6 @@ export default {
   },
   computed: {},
   ready: function () {
-    console.log(this)
   },
   attached: function () {},
   methods: {},
@@ -22,7 +21,7 @@ export default {
 }
 </script>
 
-<style type="scss">
+<style lang="scss">
   .navigation {
     position: fixed;
     top: 0;
@@ -31,5 +30,13 @@ export default {
     width: 100%;
     height: 60px;
     padding: 0 58px;
+
+    .logo {
+      display: inline-block;
+      padding-top: 10px;
+      font-size: 25px;
+      color: white;
+      background-color:rgba(0, 0, 0, 0);
+    }
   }
 </style>
