@@ -1,5 +1,5 @@
 <template lang="html">
-  <Navbar />
+  <Navbar active="0" />
 </template>
 
 <script>

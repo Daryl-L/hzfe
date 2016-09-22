@@ -3,17 +3,8 @@
     <nav class="navigation">
       <a class="logo" href="/">HZFE</a>
       <ul class="navbar">
-        <li>
-          <a class="active">首页</a>
-        </li>
-        <li>
-          <a>文章</a>
-        </li>
-        <li>
-          <a>动态</a>
-        </li>
-        <li>
-          <a>关于组织</a>
+        <li v-for="menu in menus">
+          <a v-link="{name: menu.name}">{{menu.text}}</a>
         </li>
       </ul>
       <div class="nav-border"></div>
@@ -25,12 +16,32 @@
 export default {
   data () {
     return {
-      active: 0
+      menus: [
+        {
+          name: 'Dashboard',
+          text: '首页'
+        },
+        {
+          name: 'Article',
+          text: '文章'
+        },
+        {
+          name: 'Dynamic',
+          text: '动态'
+        },
+        {
+          name: 'About',
+          text: '关于组织'
+        }
+      ]
     }
   },
+  props: ['active'],
   ready () {
     const border = document.querySelector('.nav-border')
     const self = this
+    // 移动border
+    border.style.transform = 'translate3d(' + (self.active * 100) + 'px, 0, 0)'
     Array.from(document.querySelectorAll('ul.navbar li')).forEach((val, index) => {
       val.addEventListener('mouseover', () => {
         border.style.transform = 'translate3d(' + (index * 100) + 'px, 0, 0)'

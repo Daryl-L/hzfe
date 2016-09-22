@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import App from './components/App'
 
 import Dashboard from './view/Dashboard'
+import Article from './view/Article'
+import Dynamic from './view/Dynamic'
+import About from './view/About'
 
 Vue.use(VueRouter)
 
@@ -13,8 +16,20 @@ const router = new VueRouter({
 
 router.map({
   '/': {
-    name: Dashboard,
+    name: 'Dashboard',
     component: Dashboard
+  },
+  '/article': {
+    name: 'Article',
+    component: Article
+  },
+  '/dynamic': {
+    name: 'Dynamic',
+    component: Dynamic
+  },
+  '/about': {
+    name: 'About',
+    component: About
   }
 })
 
