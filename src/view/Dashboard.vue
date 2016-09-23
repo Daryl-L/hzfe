@@ -56,15 +56,32 @@ export default {
     width: 300px;
     height: 300px;
     font-size: 100px;
+    text-align: center;
     animation: show-start 4s 1;
     //Infinite
-    transition: transform, opacity 3s ease-in;
+    transition: transform, opacity 4s ease-in-out;
   }
 
   @keyframes show-start {
     0% {
       opacity: 0;
       transform: translate3d(-300px, -300px, -300px) rotate(-360deg);
+    }
+    20% {
+      opacity: 0.2;
+      transform: translate3d(-200px, -200px, -200px) rotate(-240deg);
+    }
+    40% {
+      opacity: 0.4;
+      transform: translate3d(-100px, -100px, -100px) rotate(-120deg);
+    }
+    60% {
+      opacity: 0.6;
+      transform: translate3d(0px, 0px, 0px) rotate(0deg);
+    }
+    80% {
+      opacity: 0.8;
+      transform: translate3d(100px, 100px, 0px) rotate(120deg);
     }
     100% {
       opacity: 1;
