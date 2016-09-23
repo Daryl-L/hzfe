@@ -35,7 +35,7 @@ export default {
           text: '关于组织'
         }
       ],
-      open: false
+      open: true
     }
   },
   props: ['active'],
@@ -159,8 +159,8 @@ export default {
       margin-left: -160px;
       width: 320px;
       height: 40px;
-      transition: transform 0.3s ease-out;
-      transform: translate3d(-500px, 0px, 0);
+      transition: transform .5s cubic-bezier(.86,0,.07,1),-webkit-transform .5s cubic-bezier(.86,0,.07,1);
+      transform: translate3d(0, 0px, 0);
 
       li {
         float: left;
