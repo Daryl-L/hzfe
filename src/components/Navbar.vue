@@ -43,12 +43,10 @@ export default {
     openMenu () {
       var menu = document.querySelector('.navbar')
       if (this.open) {
-        menu.style.display = 'none'
-        menu.style.opacity = 0
+        menu.style.transform = 'translate3d(-500px, 0px, 0)'
         this.open = false
       } else {
-        menu.style.display = 'block'
-        menu.style.opacity = 1
+        menu.style.transform = 'translate3d(0, 0px, 0)'
         this.open = true
       }
     }
@@ -96,7 +94,7 @@ export default {
     position: absolute;
     top: 20px;
     color: white;
-    right: 150px;
+    right: 20px;
     cursor: pointer;
     display: none;
   }
@@ -137,11 +135,14 @@ export default {
   }
 
   @media screen and (max-width: 550px) {
+    .navigation {
+        padding: 0;
+    }
+
     .navigation a.logo {
       float: none;
       margin: auto;
       display: block;
-      width: 160px;
     }
 
     span.drop {
@@ -153,14 +154,13 @@ export default {
     }
 
     .navbar {
-      position: relative;
-      margin: auto;
+      position: absolute;
+      left: 50%;
+      margin-left: -160px;
       width: 320px;
       height: 40px;
-      transition: opacity 0.5s ease-out;
-      display: none;
-      opacity: 0;
-      transform: translate3d(0, 0px, 0);
+      transition: transform 0.3s ease-out;
+      transform: translate3d(-500px, 0px, 0);
 
       li {
         float: left;
@@ -181,6 +181,13 @@ export default {
           background-color: rgba(255, 255, 255, 0.3);
         }
       }
+    }
+  }
+
+
+  @media screen and (min-width: 550px) {
+    .navbar {
+        transform: translate3d(0, 0, 0)!important;
     }
   }
 </style>
