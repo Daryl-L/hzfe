@@ -2,9 +2,10 @@
   <header>
     <nav class="navigation">
       <a class="logo" href="/">HZFE</a>
+      <span class="drop" @click="openMenu">menu</span>
       <ul class="navbar">
         <li v-for="menu in menus">
-          <a v-link="{name: menu.name}">{{menu.text}}</a>
+          <a v-link="{name: menu.name, exact: true}">{{menu.text}}</a>
         </li>
       </ul>
       <div class="nav-border"></div>
@@ -33,10 +34,25 @@ export default {
           name: 'About',
           text: '关于组织'
         }
-      ]
+      ],
+      open: false
     }
   },
   props: ['active'],
+  methods: {
+    openMenu () {
+      var menu = document.querySelector('.navbar')
+      if (this.open) {
+        menu.style.display = 'none'
+        menu.style.opacity = 0
+        this.open = false
+      } else {
+        menu.style.display = 'block'
+        menu.style.opacity = 1
+        this.open = true
+      }
+    }
+  },
   ready () {
     const border = document.querySelector('.nav-border')
     const self = this
@@ -76,6 +92,15 @@ export default {
     }
   }
 
+  span.drop {
+    position: absolute;
+    top: 20px;
+    color: white;
+    right: 150px;
+    cursor: pointer;
+    display: none;
+  }
+
   .navbar {
     float: left;
 
@@ -109,5 +134,53 @@ export default {
     left: 160px;
     transform: translate3d(0, 0, 0);
     transition: transform .5s cubic-bezier(.86,0,.07,1),-webkit-transform .5s cubic-bezier(.86,0,.07,1);
+  }
+
+  @media screen and (max-width: 550px) {
+    .navigation a.logo {
+      float: none;
+      margin: auto;
+      display: block;
+      width: 160px;
+    }
+
+    span.drop {
+      display: block;
+    }
+
+    .nav-border {
+      display: none;
+    }
+
+    .navbar {
+      position: relative;
+      margin: auto;
+      width: 320px;
+      height: 40px;
+      transition: opacity 0.5s ease-out;
+      display: none;
+      opacity: 0;
+      transform: translate3d(0, 0px, 0);
+
+      li {
+        float: left;
+        width: 80px;
+        height: 40px;
+
+        a {
+          display: inline-block;
+          color: white;
+          width: 100%;
+          line-height: 40px;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        a.active {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
   }
 </style>
