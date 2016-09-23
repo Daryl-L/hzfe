@@ -69,6 +69,11 @@ export default {
 </script>
 
 <style lang="scss">
+  header {
+    width: 100%;
+    height: 60px;
+  }
+
   .navigation {
     position: fixed;
     top: 0;
@@ -135,6 +140,10 @@ export default {
   }
 
   @media screen and (max-width: 550px) {
+    header {
+      height: 100px;
+    }
+
     .navigation {
         padding: 0;
     }
