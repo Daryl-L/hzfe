@@ -1,8 +1,5 @@
 <template lang="html">
   <Navbar active="0"></Navbar>
-  <section>
-    <h1 class="show-start">首页</h1>
-  </section>
 </template>
 
 <script>
@@ -11,10 +8,33 @@ import Navbar from 'Navbar'
 export default {
   data () {
     return {
+      paopao: 0
     }
   },
   components: {
     Navbar
+  },
+  methods: {
+    create (paopao) {
+      // 生产随机数
+      var num = ~~(Math.random() * 4 + 1)
+      var src = './' + num + '.png'
+      var div = document.createElement('div')
+      div.className = 'paopao'
+      div.style.backgroundImage = 'url(' + src + ')'
+      document.body.appendChild(div)
+      if (this.paopao > 15) {
+        clearTimeout(paopao)
+      }
+    }
+  },
+  ready () {
+    const self = this
+    this.create()
+    const paopao = setInterval(function () {
+      self.paopao = self.paopao + 1
+      self.create(paopao)
+    }, 10000)
   }
 }
 </script>
@@ -47,45 +67,88 @@ export default {
     list-style-type: none;
   }
 
-  .show-start {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    width: 300px;
-    height: 300px;
-    font-size: 100px;
-    text-align: center;
-    animation: show-start 4s 1;
-    //Infinite
-    transition: transform, opacity 4s ease-in-out;
-  }
+  .paopao {
+      position: absolute;
+      bottom: 100%;
+      right: 100%;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-size: cover;
+      animation: paopao 40s 1;
+      transition: all 0.5s ease-out-in;
+    }
 
-  @keyframes show-start {
-    0% {
-      opacity: 0;
-      transform: translate3d(-300px, -300px, -300px) rotate(-360deg);
+    @keyframes paopao {
+      0% {
+        bottom: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+      }
+
+      20% {
+        bottom: 40%;
+        right: 20%;
+        width: 100px;
+        height: 100px;
+        transform: rotate(0deg);
+      }
+
+      30% {
+        bottom: 40%;
+        right: 30%;
+        width: 100px;
+        height: 100px;
+        transform: rotate(180deg);
+      }
+
+      40% {
+        bottom: 60%;
+        right: 30%;
+        width: 80px;
+        height: 80px;
+        transform: rotate(0deg);
+      }
+
+      60% {
+        bottom: 50%;
+        right: 40%;
+        width: 100px;
+        height: 100px;
+        transform: rotate(0deg);
+      }
+
+      70% {
+        bottom: 60%;
+        right: 30%;
+        width: 50px;
+        height: 50px;
+        transform: rotate(0deg);
+      }
+
+      80% {
+        bottom: 70%;
+        right: 50%;
+        width: 20px;
+        height: 20px;
+        transform: rotate(360deg);
+      }
+
+      90% {
+        bottom: 60%;
+        right: 80%;
+        width: 50px;
+        height: 50px;
+        transform: rotate(180deg);
+      }
+
+
+      100% {
+        bottom: 100%;
+        right: 150%;
+        width: 150px;
+        height: 150px;
+      }
     }
-    20% {
-      opacity: 0.2;
-      transform: translate3d(-200px, -200px, -200px) rotate(-240deg);
-    }
-    40% {
-      opacity: 0.4;
-      transform: translate3d(-100px, -100px, -100px) rotate(-120deg);
-    }
-    60% {
-      opacity: 0.6;
-      transform: translate3d(0px, 0px, 0px) rotate(0deg);
-    }
-    80% {
-      opacity: 0.8;
-      transform: translate3d(100px, 100px, 0px) rotate(120deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0px, 0px, 0px) rotate(0deg);
-    }
-  }
 </style>
