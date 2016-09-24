@@ -1,15 +1,13 @@
 <template lang="html">
   <Navbar active="0"></Navbar>
-  <div class="hide">
-    <img src="../assets/1.png" alt="" />
-    <img src="../assets/2.png" alt="" />
-    <img src="../assets/3.png" alt="" />
-    <img src="../assets/4.png" alt="" />
-  </div>
 </template>
 
 <script>
 import Navbar from 'Navbar'
+import img1 from '../assets/1.png'
+import img2 from '../assets/2.png'
+import img3 from '../assets/3.png'
+import img4 from '../assets/4.png'
 
 export default {
   data () {
@@ -24,10 +22,11 @@ export default {
     create (paopao) {
       // 生产随机数
       var num = ~~(Math.random() * 4 + 1)
-      var src = './' + num + '.png'
+      // var src = './' + num + '.png'
+      var arr = [img1, img2, img3, img4]
       var div = document.createElement('div')
       div.className = 'paopao'
-      div.style.backgroundImage = 'url(' + src + ')'
+      div.style.backgroundImage = 'url(' + arr[num] + ')'
       document.body.appendChild(div)
       if (this.paopao > 15) {
         clearTimeout(paopao)
