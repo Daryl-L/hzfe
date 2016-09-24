@@ -1,5 +1,6 @@
 <template lang="html">
   <Navbar active="0"></Navbar>
+  <div class="content"></div>
 </template>
 
 <script>
@@ -27,7 +28,7 @@ export default {
       var div = document.createElement('div')
       div.className = 'paopao'
       div.style.backgroundImage = 'url(' + arr[num] + ')'
-      document.body.appendChild(div)
+      document.querySelector('.content').appendChild(div)
       if (this.paopao > 15) {
         clearTimeout(paopao)
       }
