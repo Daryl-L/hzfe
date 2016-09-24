@@ -1,5 +1,11 @@
 <template lang="html">
   <Navbar active="0"></Navbar>
+  <div class="hide">
+    <img src="../assets/1.png" alt="" />
+    <img src="../assets/2.png" alt="" />
+    <img src="../assets/3.png" alt="" />
+    <img src="../assets/4.png" alt="" />
+  </div>
 </template>
 
 <script>
@@ -34,7 +40,7 @@ export default {
     const paopao = setInterval(function () {
       self.paopao = self.paopao + 1
       self.create(paopao)
-    }, 10000)
+    }, 15000)
   }
 }
 </script>
@@ -65,6 +71,9 @@ export default {
 
   li {
     list-style-type: none;
+  }
+  .hide {
+    display: none;
   }
 
   .paopao {
